@@ -158,6 +158,172 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/03/%E7%AC%AC%E5%85%AD%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="菜菜的阿山">
+      <meta itemprop="description" content="陌然">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漠然">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/03/%E7%AC%AC%E5%85%AD%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">第六次作业</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-03 23:08:13" itemprop="dateCreated datePublished" datetime="2020-05-03T23:08:13+08:00">2020-05-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="作业：将必应壁纸第一页的壁纸全部下载下来，然后将代码以及代码的解释用markdown写出来上传到博客上"><a href="#作业：将必应壁纸第一页的壁纸全部下载下来，然后将代码以及代码的解释用markdown写出来上传到博客上" class="headerlink" title="作业：将必应壁纸第一页的壁纸全部下载下来，然后将代码以及代码的解释用markdown写出来上传到博客上"></a>作业：将必应壁纸第一页的壁纸全部下载下来，然后将代码以及代码的解释用markdown写出来上传到博客上</h2><p>import requests #提取requests函数<br>from lxml import etree #提取lxml里的函数etree</p>
+<p>class BingCrawler():<br>    def <strong>init</strong>(self):  #定义一个新变量，init函数<br>        self.BASE_URL = “<a href="https://bing.ioliu.cn&quot;#必应图片网址" target="_blank" rel="noopener">https://bing.ioliu.cn&quot;#必应图片网址</a><br>        self.TOTAL_PAGE = 124 #页数<br>        self.headers = {<br>            “user-agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36”<br>        }  #响应头</p>
+<pre><code>def spider(self):#爬取函数
+    session = requests.Session() #请求session
+    for index in range(1 ,self.TOTAL_PAGE+1):#实现翻页
+        url = self.BASE_URL + f&quot;/?p={index}&quot; #第几页的网址
+        response = session.get(url=url, headers=self.headers) #响应session，并且得到数据
+        yield response.content.decode(&quot;utf8&quot;) #使数据编码为utf-8
+
+@staticmethod
+def parser(html): #把程序文本转化成编译器内部的一种结构数据
+    selector = etree.HTML(html) #构造一个XPath解析对象并对HTML文本进行自动修正
+    url_list = selector.xpath(&quot;//div[@class=&apos;item&apos;]//div[@class=&apos;options&apos;]/a[2]/@href&quot;)  #在网址中找到要提取的内容
+    return url_list #返回到url_list
+
+def save_picture(self, url_list): #定义函数，保存图片
+    session = requests.Session() #请求session
+    for url in url_list: #for循环，遍历
+        file_name = url.split(&quot;/&quot;)[2][:-15] + &quot;.jpg&quot; #文件的名字，提取图片
+        picture_url =  self.BASE_URL + url #图片地址
+        response = session.get(picture_url, headers=self.headers) #响应session，得到数据
+        with open(file_name, &quot;wb&quot;) as file:#打开文件
+            file.write(response.content) 
+
+def run(self):#解析函数
+    html_gen = self.spider() 
+    for html in html_gen:
+        url_list = self.parser(html)
+        self.save_picture(url_list)</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    bing_spider = BingCrawler()<br>    bing_spider.run()</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/03/%E7%AC%AC%E4%BA%94%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.png">
+      <meta itemprop="name" content="菜菜的阿山">
+      <meta itemprop="description" content="陌然">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="漠然">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/03/%E7%AC%AC%E4%BA%94%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">第五次作业</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-03 23:06:19" itemprop="dateCreated datePublished" datetime="2020-05-03T23:06:19+08:00">2020-05-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="第五次作业"><a href="#第五次作业" class="headerlink" title="第五次作业"></a>第五次作业</h2><h1 id="1、将百度热点http-top-baidu-com-buzz-b-341-amp-c-513-amp-fr-topbuzz-b1的抓取过程封装成函数"><a href="#1、将百度热点http-top-baidu-com-buzz-b-341-amp-c-513-amp-fr-topbuzz-b1的抓取过程封装成函数" class="headerlink" title="1、将百度热点http://top.baidu.com/buzz?b=341&amp;c=513&amp;fr=topbuzz_b1的抓取过程封装成函数"></a>1、将百度热点<a href="http://top.baidu.com/buzz?b=341&amp;c=513&amp;fr=topbuzz_b1的抓取过程封装成函数" target="_blank" rel="noopener">http://top.baidu.com/buzz?b=341&amp;c=513&amp;fr=topbuzz_b1的抓取过程封装成函数</a></h1><h1 id="2、提取B站评论的响应内容，将“发送成功”提取出来"><a href="#2、提取B站评论的响应内容，将“发送成功”提取出来" class="headerlink" title="2、提取B站评论的响应内容，将“发送成功”提取出来"></a>2、提取B站评论的响应内容，将“发送成功”提取出来</h1><h1 id="3、提取出https-www-baidu-com-s-wd-ip页面中的IP信息"><a href="#3、提取出https-www-baidu-com-s-wd-ip页面中的IP信息" class="headerlink" title="3、提取出https://www.baidu.com/s?wd=ip页面中的IP信息"></a>3、提取出<a href="https://www.baidu.com/s?wd=ip页面中的IP信息" target="_blank" rel="noopener">https://www.baidu.com/s?wd=ip页面中的IP信息</a></h1><ul>
+<li>ip信息</li>
+</ul>
+<p>import requests<br>import re</p>
+<p>headers = {<br>    “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36”<br>}<br>url = “<a href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=78000241_33_hao_pg&amp;wd=IP&amp;fenlei=256&amp;rsv_pq=af4126bf0000d598&amp;rsv_t=c70b2oXahb16B%2Bygl%2F9Jy37vBcmxfMoaxF8%2Biqs4JiMH%2BjZe0q64XdgBDlYqOp1iXRXrVsIjdo5g&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_sug3=2&amp;rsv_sug1=1&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_btype=i&amp;inputT=2445&amp;rsv_sug4=2445&quot;" target="_blank" rel="noopener">https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=1&amp;tn=78000241_33_hao_pg&amp;wd=IP&amp;fenlei=256&amp;rsv_pq=af4126bf0000d598&amp;rsv_t=c70b2oXahb16B%2Bygl%2F9Jy37vBcmxfMoaxF8%2Biqs4JiMH%2BjZe0q64XdgBDlYqOp1iXRXrVsIjdo5g&amp;rqlang=cn&amp;rsv_enter=1&amp;rsv_dl=tb&amp;rsv_sug3=2&amp;rsv_sug1=1&amp;rsv_sug7=100&amp;rsv_sug2=0&amp;rsv_btype=i&amp;inputT=2445&amp;rsv_sug4=2445&quot;</a><br>response = requests.get(url=url,headers=headers)<br>html = response.content.decode(“utf-8”)</p>
+<p>pattern = ‘<td>\s+&lt;span.<em>?&gt;(.</em>?)</span>‘<br>result = re.findall(pattern,html)<br>print(result)</p>
+<ul>
+<li>百度热点</li>
+</ul>
+<p>import requests<br>import re</p>
+<p>def self():<br>    headers = {<br>    “User-Agent”:” Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36”<br>    }<br>    url = “<a href="http://top.baidu.com/buzz?b=341&amp;c=513&amp;fr=topbuzz_b1%E7%9A%84%E6%8A%93%E5%8F%96%E8%BF%87%E7%A8%8B%E5%B0%81%E8%A3%85%E6%88%90%E5%87%BD%E6%95%B0&quot;" target="_blank" rel="noopener">http://top.baidu.com/buzz?b=341&amp;c=513&amp;fr=topbuzz_b1%E7%9A%84%E6%8A%93%E5%8F%96%E8%BF%87%E7%A8%8B%E5%B0%81%E8%A3%85%E6%88%90%E5%87%BD%E6%95%B0&quot;</a><br>    response = requests.get(url)<br>    html = response.content.decode(“gb2312”)<br>def crawl():<br>    pattern = ‘&lt;td\sclass=”keyword”&gt;\s+&lt;a.<em>?&gt;(.</em>?)</a>‘<br>    result = re.findall(pattern,html)</p>
+<p>def Bale():<br>    for i in enumerate(result,start = 1):<br>        print(i)</p>
+<p>if <strong>name</strong> == “<strong>main</strong>“:<br>    Bale()</p>
+<ul>
+<li>b站评论</li>
+</ul>
+<p>import requests</p>
+<p>def send_comment():<br>    url = “<a href="https://api.bilibili.com/x/v2/reply/add&quot;" target="_blank" rel="noopener">https://api.bilibili.com/x/v2/reply/add&quot;</a><br>    headers = {<br>        “Accept”: “application/json, text/javascript, <em>/</em>; q=0.01”,<br>        “Accept-Encoding”: “gzip, deflate, br”,<br>        “Accept-Language”: “zh-CN,zh;q=0.9”,<br>        “Connection”: “keep-alive”,<br>        “Content-Type”: “application/x-www-form-urlencoded; charset=UTF-8”,<br>        “Cookie”: “_uuid=2C9F0C76-EDA3-4616-B522-3D940346CF5263552infoc; buvid3=D8BCFFA0-E8CC-4992-A99E-DAD4E5A2159853920infoc; sid=ai89ke8d; DedeUserID=476892351; DedeUserID__ckMd5=49257620403837c7; SESSDATA=44539ff0%2C1602589991%2C02143*41; bili_jct=860d8ec76d886baae8196a2fda74f804; LIVE_BUVID=AUTO3515870380028320; bp_t_offset_476892351=377263149829548238; CURRENT_FNVAL=16; bsource=seo_google; PVID=4; rpdid=|(J|)R)RJkRl0J’ul)<del>u|</del>k|)”,<br>        “Host”: “api.bilibili.com”,<br>        “Origin”: “<a href="https://www.bilibili.com&quot;" target="_blank" rel="noopener">https://www.bilibili.com&quot;</a>,<br>        “Referer”: “<a href="https://www.bilibili.com/video/av89901570?from=search&amp;seid=7620866718617405880&quot;" target="_blank" rel="noopener">https://www.bilibili.com/video/av89901570?from=search&amp;seid=7620866718617405880&quot;</a>,<br>        “User-Agent”: “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36”<br>    }<br>    form_data = {<br>        “oid”:96692394,<br>        “type”:1,<br>        “message”:”你真棒”,<br>        “plat”:1,<br>        “jsonp”:”jsonp”,<br>        “csrf”:”830bb4f6d408eb00ac97c4f0d2dbf58d”</p>
+<pre><code>}
+response = requests.post(url=url,headers=headers,data=form_data)
+return response.json()</code></pre><p>def parser(data):<br>    data = data[“data”]<br>    print(data)<br>    result = data[“success_toast”]<br>    print(result)</p>
+<p>def run():<br>    data = send_comment()<br>    parser(data)</p>
+<p>if <strong>name</strong> == “<strong>main</strong>“:<br>    run()</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/03/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1183,7 +1349,7 @@ print(json.loads(resp.read().decode(&quot;utf-8&quot;)))</code></pre><p>if <stro
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
